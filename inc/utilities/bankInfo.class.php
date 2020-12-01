@@ -21,7 +21,7 @@ class Bank_Info {
     static public function html_form() {
         echo  "
         <h1 class = 'heading'>Legends Payroll</h1>
-        <a href='homepage.php' id='back'>Go Back</a>
+        <a href='homepageEmployee.php' id='back'>Go Back</a>
     <center>
 
     

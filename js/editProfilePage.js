@@ -97,11 +97,11 @@ async function loadData() {
     }
 
     if(user) {
-        document.getElementById('fName').value = user['first_name'];
-        document.getElementById('lName').value =  user['last_name'];
+        document.getElementById('fName').value = user['fName'];
+        document.getElementById('lName').value =  user['lName'];
         document.getElementById('email').value = user['email'];
-        document.getElementById('number').value = user['phone_number'];
-        document.getElementById('companyCode').value = user['company_code'];
+        document.getElementById('number').value = user['phoneNo'];
+        document.getElementById('companyCode').value = user['companyCode'];
     }
     
 }

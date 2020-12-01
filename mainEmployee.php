@@ -1,8 +1,6 @@
 <?php
 require_once('./inc/config.inc.php');
 require_once('./inc/entities/employee.class.php');
-require_once('./inc/utilities/fileService.class.php');
-require_once('./inc/utilities/EmployeeParser.class.php');
 require_once('./inc/utilities/employeeDAO.class.php');
 require_once('./inc/utilities/PDOService.class.php');
 $input = json_decode(file_get_contents("php://input"));
