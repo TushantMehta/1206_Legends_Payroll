@@ -1,8 +1,8 @@
 <?php
 
-define("DATA_FILE","data/employer.csv");
-define("DATA_FILE2","data/customerMessages.csv");
-define("EMPLOYEE_DATA_FILE", "data/employees.csv");
-
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "Legends_Payroll");
 
 ?>

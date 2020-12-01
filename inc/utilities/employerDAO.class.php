@@ -4,16 +4,12 @@ class EmployerDAO {
 
     static private $employers = array();
     
-    
-    
-    static public function updateEmployers() {
+    private static $_db;
 
-        $content = FileService::readFile(DATA_FILE);
-        EmployerParser::ParseEmployers($content);
-        self::$employers = EmployerParser::$employers;
-
-
+    public static function intialize() {
+        self::$_db = new PDOService("Employer");
     }
+    
 
     static public function convertToStd($dataToConvert) {
         
@@ -82,90 +78,107 @@ class EmployerDAO {
 
     static public function getEmployers() {
 
-        self::updateEmployers();
+        $sql = "SELECT * FROM employer;";
 
-        return self::convertToStd(self::$employers);
+            //Query
+            self::$_db->query($sql);
 
+            //Execute
+            self::$_db->execute();
+
+            //Return Results
+            return self::convertToStd(self::$_db->resultSet());
+
+    }
+
+    public static function getEmployer(int $id)   {
+            
+
+        $stdPerson = new stdClass;
+        $sql = "SELECT * FROM employer  WHERE id = :id";
+
+        // Query 
+        self::$_db->query($sql);
+
+        //Bind
+        self::$_db->bind(":id", $id);
+
+        //Execute
+        self::$_db->execute();
+
+        //return 
+        $stdPerson =  self::convertToStd(self::$_db->singleResult());
+
+        if ( empty($stdPerson)) {
+            return array("message"=>"We couldnt find person $id");
+        } else {
+            return $stdPerson;
+        }
     }
     
     
-    static public function addEmployer($data) {
+    public static function addEmployer(Employer $p) {
 
-        self::updateEmployers();
+        $sql = "INSERT INTO employer (id, first_name, last_name, 
+                    email, phone_number, company_code, password)
+                        VALUES (:id, :fName, :lName, :email, :phoneNo, 
+                                :companyCode, :password)";
         
-        $emp = self::createEmployerObj($data);
-        array_push(self::$employers, $emp);
 
-        self::updateCSV();
-    }
+        self::$_db->query($sql);
 
-
-    static public function editEmployer($input) {
-
-        self::updateEmployers();
-
-        $emp = self::createEmployerObj($input);
-        $i = 0;
-        foreach(self::$employers as $employer) {
-            if($employer->getId() == $emp->getId()) {
-
-                self::$employers[$i] = $emp;
-            break;
-            
-            }
-
-            ++$i;
-        }
-
-        self::updateCSV();
+        self::$_db->bind(":id", $p->getId());
+        self::$_db->bind(":fName", $p->getFName());
+        self::$_db->bind(":lName", $p->getLName());
+        self::$_db->bind(":email", $p->getEmail());
+        self::$_db->bind(":phoneNo", $p->getPhoneNo());
+        self::$_db->bind(":companyCode", $p->getCompanyCode());
+        self::$_db->bind(":password", $p->getPassword());
 
 
-
-    }
-
-
-    static public function deleteEmployer($input) { 
-
-        self::updateEmployers();
-
-        $emp = self::createEmployerObj($input);
-
-        $i = 0;
-        foreach(self::$employers as $employer) {
-            if($employer->getId() == $emp->getId()) {
-
-                array_splice(self::$employers, $i, 1);
-            break;
-            
-            }
-
-            ++$i;
-        }
-
-        self::updateCSV();
+        self::$_db->execute();
 
         
     }
 
 
-    public static function updateCSV() {
+    static public function editEmployer(Employer $p) {
 
-        $csvStr = "id,First_Name,Last_Name,Email,PhoneNumber,Company Code,Password";
+        $sql = "UPDATE employer 
+                SET first_name = :fName, last_name= :lName, email = :email, 
+                    phone_number = :phoneNo, company_code = :companyCode, password = :password
+                    WHERE id = :id";
 
-        foreach(self::$employers as $person) {
-            $csvStr .= "\n".
-            $person->getId().",".
-            $person->getFName().",".
-            $person->getLName().",".
-            $person->getEmail().",".
-            $person->getPhoneNo().",".
-            $person->getCompanyCode().",".
-            $person->getPassword();
+        self::$_db->query($sql);
 
-            FileService::writeFile(DATA_FILE, $csvStr);
+        self::$_db->bind(":id", $p->getId());
+        self::$_db->bind(":fName", $p->getFName());
+        self::$_db->bind(":lName", $p->getLName());
+        self::$_db->bind(":email", $p->getEmail());
+        self::$_db->bind(":phoneNo", $p->getPhoneNo());
+        self::$_db->bind(":companyCode", $p->getCompanyCode());
+        self::$_db->bind(":password", $p->getPassword());
 
-        }
+
+        self::$_db->execute();
+
     }
+
+
+    static public function deleteEmployer(Employer $p) { 
+
+        $sql = "DELETE FROM employer 
+                WHERE id = :id";
+
+        self::$_db->query($sql);
+
+        self::$_db->bind(":id", $p->getId());
+
+        self::$_db->execute();
+
+        
+    }
+
 
 }
 ?>
