@@ -4,11 +4,11 @@
 class Employee {
 
     private int $id;
-    private string $fName;
-    private string $lName;
+    private string $first_name;
+    private string $last_name;
     private string $email;
-    private string $phoneNo;
-    private string $companyCode;
+    private int $phone_number;
+    private string $company_code;
     private string $password;
 
 
@@ -39,11 +39,11 @@ class Employee {
         return $this->id;
     }
     public function getFName() {
-        return $this->fName;
+        return $this->first_name;
     }
     
     public function getLName() {
-        return $this->lName;
+        return $this->last_name;
     }
 
     public function getEmail() {
@@ -51,7 +51,7 @@ class Employee {
     }
 
     public function getPhoneNo() {
-        return $this->phoneNo;
+        return $this->phone_number;
     }
 
     public function getPassword() {
@@ -59,7 +59,7 @@ class Employee {
     }
 
     public function getCompanyCode() {
-        return $this->companyCode;
+        return $this->company_code;
     }
 
     // setters
@@ -67,21 +67,21 @@ class Employee {
     public function  setId(int $n) {
         $this->id = $n;
     }
-    public function setFName(string $fN) {
-        $this->fName = $fN;
+    public function setfName(string $fN) {
+        $this->first_name = $fN;
     }
 
-    public function setLName(string $lN) {
-        $this->lName = $lN;
+    public function setlName(string $lN) {
+        $this->last_name = $lN;
     }
     public function setEmail(string $email) {
         $this->email = $email;
     }
-    public function setPhoneNo(string $num) {
-        $this->phoneNo = $num;
+    public function setphoneNo(string $num) {
+        $this->phone_number = $num;
     }
     public function setCompanyCode(string $cCode) {
-        $this->companyCode = $cCode;
+        $this->company_code = $cCode;
     }
 
     public function setPassword(string $pas) {
