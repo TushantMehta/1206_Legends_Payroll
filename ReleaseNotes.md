@@ -25,3 +25,15 @@
         -Manage_employees feature by Jaisika Narang
         -Customer Feedback feature by Varun Sidhu
 
+
+
+# 0.3 
+    -three new feature are added in this version.
+    -Manage Bank detail for direct deposit - Employees can now add bank for direct deposit
+    -Manage Leaves for employees- Now they can easily add their leaves
+    -Add Working Shifts for employees - Now they can make a record of their working hours.
+
+     -About team(itration 3) :
+        - Manage Bank_detail feature by Tushant Mehta
+        -Manage Leaves feature by Jaisika Narang
+        -Manage shifts feature by Varun Sidhu

@@ -5,7 +5,7 @@ var user;
 
 
 
-if (sessionStorage.getItem('email')) {
+if (sessionStorage.getItem('id')) {
 loadData();
 }
 else {
@@ -87,19 +87,23 @@ async function loadData() {
 
     data = await getData();
 
-    var eml = sessionStorage.getItem("email");
+    var id = sessionStorage.getItem("id");
 
     for(var i = 0; i < data.length; ++i) {
-        if(data[i]['email'] == eml) {
+        if(data[i]['id'] == id) {
             user = data[i];
+            break;
         }
     }
 
-    document.getElementById('fName').value = user['fName'];
-    document.getElementById('lName').value =  user['lName'];
-    document.getElementById('email').value = user['email'];
-    document.getElementById('number').value = user['phoneNo'];
-    document.getElementById('companyCode').value = user['companyCode'];
+    if(user) {
+        document.getElementById('fName').value = user['first_name'];
+        document.getElementById('lName').value =  user['last_name'];
+        document.getElementById('email').value = user['email'];
+        document.getElementById('number').value = user['phone_number'];
+        document.getElementById('companyCode').value = user['company_code'];
+    }
+    
 }
 
 function redirectPage() {
@@ -112,7 +116,7 @@ function deleteProfile() {
         method: 'delete',
         body: JSON.stringify(user),
     })
-    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('id');
 
     //window.location.assign('signUp.php');
 }

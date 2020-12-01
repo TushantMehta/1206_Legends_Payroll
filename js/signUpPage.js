@@ -4,7 +4,7 @@ var data;
 
 
 function redirectPage() {
-    window.location = './login.php';
+    window.location = './loginEmployer.php';
 }
 
 async function checkAndSave() {
