@@ -31,8 +31,8 @@ class WelcomePage {
             <div>
                 <ul class="login">
                     
-                    <li><a href="./login.php">Employee Login</a></li>
-                    <li><a href="./login.php">Employer Login</a></li>
+                    <li><a href="./loginEmployee.php">Employee Login</a></li>
+                    <li><a href="./loginEmployer.php">Employer Login</a></li>
                 </ul>
 
                 <p class="register">Not Registered?<a href="./signUp.php" class="signUp"> click here </a>to signUp as Employer</p>
