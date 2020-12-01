@@ -39,7 +39,14 @@ class LeaveMgt {
         <p id = 'error' style='color:white; background-color:red; font-size:15px' ></p>
         
         <label>Leave Type: </label>
-        <input name='leave_Type' id='leave_Type' type='text';  required>
+        <select name='leave_Type' id='leave_Type'>
+        <option selected value='1'> </option>
+        <option value='Sick'>Sick</option>
+        <option value='Earned'>Earned</option>
+        <option value='Personal'>Personal</option>
+        <option value='Appreciation'>Appreciation</option>
+        <option value='Vacation'>Vacation</option>
+        </select>
        
         <br><br>
         
@@ -57,7 +64,11 @@ class LeaveMgt {
         <br><br>
 
         <label>Status: </label>
-        <input name='status' id='status' type='text';  required>
+        <select name='status' id='status'>
+        <option selected value='1'> </option>
+        <option  value='New Leave'>New Leave</option>
+        <option value='Extending Leave'>Extending Leave</option>
+        </select>
         <br><br>
 
 

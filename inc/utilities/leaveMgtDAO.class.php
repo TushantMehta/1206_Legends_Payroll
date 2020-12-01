@@ -6,7 +6,6 @@ class Leave_Mgt{
 
     static function initialize(){
         self::$_db = new PDOService("LeaveMgt");
-
     }
     static function getDetail(){
         $sql = "SELECT * FROM leave_Mgt";
