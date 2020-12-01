@@ -93,13 +93,10 @@ class EmployerDAO {
 
         self::updateEmployers();
         
-        $jsonData  = file_get_contents(DATA_FILE);
-        $array = json_decode($jsonData);
         $emp = self::createEmployerObj($data);
-        $empStd = self::convertToStd($emp);
-        array_push($array, $empStd);
-        $nArray = json_encode($array);
-        file_put_contents(DATA_FILE, $nArray);
+        array_push(self::$employers, $emp);
+
+        self::updateCSV();
     }
 
 
@@ -120,9 +117,7 @@ class EmployerDAO {
             ++$i;
         }
 
-        $updateArray = self::convertToStd(self::$employers);
-
-        file_put_contents(DATA_FILE, json_encode($updateArray));
+        self::updateCSV();
 
 
 
@@ -147,10 +142,29 @@ class EmployerDAO {
             ++$i;
         }
 
-        $updateArray = self::convertToStd(self::$employers);
+        self::updateCSV();
 
-        file_put_contents(DATA_FILE, json_encode($updateArray));
+        
+    }
 
+
+    public static function updateCSV() {
+
+        $csvStr = "id,First_Name,Last_Name,Email,PhoneNumber,Company Code,Password";
+
+        foreach(self::$employers as $person) {
+            $csvStr .= "\n".
+            $person->getId().",".
+            $person->getFName().",".
+            $person->getLName().",".
+            $person->getEmail().",".
+            $person->getPhoneNo().",".
+            $person->getCompanyCode().",".
+            $person->getPassword();
+
+            FileService::writeFile(DATA_FILE, $csvStr);
+
+        }
     }
 
 }

@@ -16,14 +16,14 @@ class FileService   {
             
             $contents = fread($fh, filesize($fileName));
 
-            $content = json_decode($contents);
+           
             fclose($fh);
 
         } catch (Exception $fe) {
             echo $fe->getMessage();
         }
 
-        return $content;
+        return $contents;
     }
 
     public static function writeFile($fileName, $contents)  {

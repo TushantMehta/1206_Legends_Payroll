@@ -1,4 +1,4 @@
-var url = "./mainEmployee.php";
+var url = "./mainEmployer.php";
 
 var data;
 
@@ -44,25 +44,25 @@ async function checkAndSave() {
     
     data = await getData();
 
-    
-    for(var i = 0; i < data.length; ++i ) {
-        if (data[i]['email'] == email) {
-            errors = [];
-            errors.push("Already Registered");
-            
+    if(data != "") {
+        for(var i = 0; i < data.length; ++i ) {
+            if (data[i]['email'] == email) {
+                errors = [];
+                errors.push("Already Registered");
+                
 
-            document.getElementById('fName').value = "";
-            document.getElementById('lName').value = "";
-            document.getElementById('email').value = "";
-            document.getElementById('number').value = "";
-            document.getElementById('companyCode').value = "";
-            document.getElementById('password').value = "";
-            
-            break;
+                document.getElementById('fName').value = "";
+                document.getElementById('lName').value = "";
+                document.getElementById('email').value = "";
+                document.getElementById('number').value = "";
+                document.getElementById('companyCode').value = "";
+                document.getElementById('password').value = "";
+                
+                break;
+            }
         }
-    }
-   
     
+    }
     if(errors.length > 0 && empty == false) {
         for (var i = 0; i < errors.length; ++i) {
         document.getElementById("error").textContent += "* " + errors[i]; 
@@ -77,9 +77,9 @@ async function checkAndSave() {
             body: JSON.stringify({"id":(data[data.length - 1]['id'] + 1), "fName":fName,"lName":lName,"email":email,
             "phoneNo":phoneNo,"companyCode":companyCode,"password":password})
    
-     }),
+     })
 
-        window.location = "./newRegister.php";
+        //window.location = "./newRegister.php";
      
     }
 
@@ -89,15 +89,16 @@ async function checkAndSave() {
 
     //})
 
-
-
 }
+
+
 
 
 
 async function getData() {
 
     var res = await fetch(url)
+    
     var dat  = await res.json()
     
     return dat;
