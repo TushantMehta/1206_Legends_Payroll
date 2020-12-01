@@ -1,0 +1,25 @@
+.manageEmployees{
+    background-color: rgb(153, 174, 196);
+    border-style: solid;
+    width:fit-content;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+}
+.heading {
+    background-color: rgb(227, 245, 230);
+    border-style: solid;
+    width: 500px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin:25px 50px 75px 100px;
+
+}
+
+.button{
+    background-color:rgb(227, 245, 230);
+    border-style: solid;  
+    border-color: black;
+}

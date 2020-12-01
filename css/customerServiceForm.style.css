@@ -1,0 +1,79 @@
+body  
+{  
+    margin: 0;  
+    padding: 90;  
+    font-family: 'Arial';  
+}
+#contactInfo    {
+    float: left;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+#contactInfo2    {
+    float: left;
+    margin-left: 50px;
+}
+#contactInfo3 {
+    float: left;
+    margin-left: 50px;
+}
+#heading    {
+    font-size: 45px;
+    margin-left: 50px;
+    margin-bottom: 0px;
+}   
+#msg{
+    font-size: 25px;
+}
+#contactForm{
+    float:none;
+    margin-left: 50px;
+}
+#error{
+    width: 75%;
+    color: red; 
+}
+input[type=button] {
+    width: 7%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+input[type=button]:hover {
+    background-color: #45a049;
+}
+input[type=text], select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 7px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#custMsg{
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 7px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=email], select {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 7px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#custMsg  {
+    padding: 12px 20px;
+    height: 120px;
+}
