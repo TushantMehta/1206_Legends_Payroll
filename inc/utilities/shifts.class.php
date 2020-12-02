@@ -17,7 +17,7 @@ class Shifts {
 
     static public function html_footer(){
         echo "
-        <a href ='homepage.php' id='back'><p id='gb'><U><i>Go Back</U></i></p><a>
+        <a href ='homepageEmployee.php' id='back'><p id='gb'><U><i>Go Back</U></i></p><a>
                 
         <div id = 'addShift'>
         <center>
