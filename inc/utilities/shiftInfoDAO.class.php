@@ -30,10 +30,17 @@ class Shift_info {
         }
 
     static public function delete(ShiftInfo $sn){
-        $sql = "DELETE FROM shift_detail WHERE id = :id";
+        //$sql = "DELETE FROM shift_details WHERE date = :date and hours = :hrs and employee_id = :emp and id = :id";
+
+        $sql = "DELETE FROM shift_details WHERE id = :id";
 
         self::$_db->query($sql);
-        self::$_db->bind(":id", $bn->getId());
+
+        self::$_db->bind(":id", $sn->getId());
+
+        // self::$_db->bind(":date", $sn->getDate());
+        // self::$_db->bind(":hrs", $sn->getHrs());
+        // self::$_db->bind(":emp", $sn->getEmployeeId());
         
         self::$_db->execute();
     }
@@ -56,7 +63,7 @@ class Shift_info {
         }
         else    {
             $emp = new stdClass;
-            $emp = new stdClass;
+            
             $emp->id = $data->getId();
             $emp->date = $data->getDate();
             $emp->hours = $data->getHrs();
