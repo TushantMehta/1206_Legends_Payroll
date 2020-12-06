@@ -1,7 +1,7 @@
 <?php
 
 class ShiftInfo {
-    private int $id;
+    private $id;
     private $date;
     private  $hours;
     private $employee_id;

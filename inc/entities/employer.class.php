@@ -3,13 +3,13 @@
 
 class Employer {
 
-    private int $id;
-    private string $first_name;
-    private string $last_name;
-    private string $email;
-    private int $phone_number;
-    private string $company_code;
-    private string $password;
+    private $id;
+    private  $first_name;
+    private $last_name;
+    private $email;
+    private $phone_number;
+    private  $company_code;
+    private $password;
 
 
     // public function __construct(
