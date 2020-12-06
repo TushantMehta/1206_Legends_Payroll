@@ -3,11 +3,11 @@
 
 class BankInfo {
 
-    private int $id;
+    private $id;
     private $account_number;
     private $transit_number;
     private $institute_number;
-    private int $employee_id;
+    private $employee_id;
 
 
     public function setId(int $id) {
