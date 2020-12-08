@@ -74,6 +74,14 @@ CREATE TABLE salary_details (
     FOREIGN KEY (employeeID) REFERENCES employee (id) on delete cascade,
     FOREIGN KEY (employerID) REFERENCES employer (id)
 );
+CREATE TABLE tax_details(
+    tax_Id INT PRIMARY KEY,
+    employee_id INT NOT NULL,
+    employee_address mediumtext NOT NULL,
+    sin_number INT NOT NULL,
+    salary_generated INT NULL, 
+    FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade
+);
 
 
 INSERT INTO employer (id, first_name, last_name, email, phone_number, company_code, password)
@@ -98,3 +106,6 @@ INSERT INTO attendance (id, date, present, employee_id)
 
 INSERT INTO salary_details (paymentID, currency, wageType, amount, employeeID, employerID) 
     VALUES (1,'CAD', 'Annual', 30000.00, 1,1);
+
+INSERT INTO tax_details(tax_Id, employee_address, sin_number, salary_generated, employee_id)
+    VALUES(1, "9518 132ST Canada", 1235346546, 400000, 2);
