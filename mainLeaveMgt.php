@@ -17,7 +17,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
     case "POST":
 
         if
-        (isset($input->leave_Id)
+        (isset($input->Id)
             && isset($input->leave_Type)
             && isset($input->date_To)
             && isset($input->date_From) 
@@ -64,12 +64,12 @@ switch($_SERVER["REQUEST_METHOD"]) {
         
         if
         (isset($input->leave_Id)
-            &&isset($input->leave_Type)
-            && isset($input->date_To)
-            && isset($input->date_From) 
-            && isset($input->description) 
-            && isset($input->status)
-            && isset($input->employee_id))  {
+        && isset($input->leave_Type)
+        && isset($input->date_To)
+        && isset($input->date_From) 
+        && isset($input->description) 
+        && isset($input->status) 
+        && isset($input->employee_id))  {
             
                 $lm = leave_Mgt::createLeaveMgtObj($input);
                // echo "lm = ", $lm;
@@ -81,5 +81,9 @@ switch($_SERVER["REQUEST_METHOD"]) {
 
     break;
 }
+
+
+
+
 
 ?>

@@ -36,4 +36,16 @@
      -About team(itration 3) :
         - Manage Bank_detail feature by Tushant Mehta
         -Manage Leaves feature by Jaisika Narang
-        -Manage shifts feature by Varun Sidhu.
+        -Manage shifts feature by Varun Sidhu
+
+
+# 0.4
+    -three new feature are added in this version.
+    -Manage Attendance - Employer can now mark attendance of employees
+    -Manage tax details - Now employees can manage their taxes.
+    -Salary Management - Now employer can add salary.
+
+     -About team(itration 3) :
+        - Manage attendance feature by Tushant Mehta
+        -Manage tax_detail feature by Jaisika Narang
+        -Manage salary feature by Varun Sidhu
