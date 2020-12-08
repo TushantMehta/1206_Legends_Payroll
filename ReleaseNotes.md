@@ -36,7 +36,7 @@
      -About team(itration 3) :
         - Manage Bank_detail feature by Tushant Mehta
         -Manage Leaves feature by Jaisika Narang
-        -Manage shifts feature by Varun Sidhu
+        -Manage shifts feature by Varun Sidhu.
 
 
 # 0.4
