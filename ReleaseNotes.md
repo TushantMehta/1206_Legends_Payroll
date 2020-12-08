@@ -47,5 +47,5 @@
 
      -About team(itration 3) :
         - Manage attendance feature by Tushant Mehta
-        -Manage tax_detail feature by Jaisika Narang
+        -Manage tax_detail feature by Jaisika Narang.
         -Manage salary feature by Varun Sidhu.
