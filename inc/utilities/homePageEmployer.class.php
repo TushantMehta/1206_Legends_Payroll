@@ -42,6 +42,7 @@ class homePage {
             <input type="button" name="submit" id="submit" value="LogOut" onclick = "logOut()">
             <input type="button" name="submit" id="submit" value="Edit Profile" onclick = "editProfile()">
             <input type="button" name="submit" id="submit" value="Manage Employees" onclick = "manageEmployees()">
+            <input type="button" name="submit" id="submit" value="Take Attendance" onclick = "attendance()">
             <input type="button" name="submit" id="submit" value="Customer Service" onclick = "customerService()">
            ';
         }
