@@ -64,6 +64,17 @@ CREATE TABLE attendance (
    FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade 
 );
 
+CREATE TABLE salary_details (
+    paymentID INT PRIMARY KEY ,
+    currency VARCHAR(3) NOT NULL,
+    wageType VARCHAR(15) NOT NULL,
+    amount float NOT NULL,
+    employeeID INT NOT NULL,
+    employerID INT NOT NULL,
+    FOREIGN KEY (employeeID) REFERENCES employee (id) on delete cascade,
+    FOREIGN KEY (employerID) REFERENCES employer (id)
+);
+
 
 INSERT INTO employer (id, first_name, last_name, email, phone_number, company_code, password)
     VALUES (1, "Tushant", "Mehta", "tmm78795@gmail.com", 7787726120, 123, 123456);
@@ -85,3 +96,5 @@ INSERT INTO shift_details (id, date, hours, employee_id)
 INSERT INTO attendance (id, date, present, employee_id) 
     VALUES (1,'2020-11-25 12:30:00',"yes", 1);
 
+INSERT INTO salary_details (paymentID, currency, wageType, amount, employeeID, employerID) 
+    VALUES (1,'CAD', 'Annual', 30000.00, 1,1);
