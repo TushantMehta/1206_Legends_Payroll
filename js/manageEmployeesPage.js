@@ -56,7 +56,7 @@ async function add_Employee() {
 
        
         fetch(url,{ method: 'post',
-              body: JSON.stringify({"id":Number((data[data.length - 1]['id']) + 1),"fName":fName,"lName":lName,"email":email,
+              body: JSON.stringify({"id":(Number((data[data.length - 1]['id'])) + 1),"fName":fName,"lName":lName,"email":email,
               "phoneNo":phoneNo,"companyCode":companyCode,"password":password})
         
             }),
