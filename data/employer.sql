@@ -56,12 +56,22 @@ CREATE TABLE shift_details (
     FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade
 );
 
-CREATE TABLE attendance (
-    id INT PRIMARY KEY,
-    date DATE NOT NULL,
-    present tinytext NOT NULL,
+CREATE TABLE tax_details(
+    tax_Id INT PRIMARY KEY,
     employee_id INT NOT NULL,
-   FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade 
+    employee_address mediumtext NOT NULL,
+    sin_number INT NOT NULL,
+    salary_generated INT NULL, 
+    FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade
+);
+
+CREATE TABLE salary_details (
+    paymentID INT PRIMARY KEY,
+    currency VARCHAR(3) NOT NULL,
+    wageType VARCHAR(15) NOT NULL,
+    amount float NOT NULL,
+    employeeID INT NOT NULL,
+    FOREIGN KEY (employeeID) REFERENCES employee (id) on delete cascade
 );
 
 
@@ -79,9 +89,11 @@ INSERT INTO bank_detail (id, account_number, transit_number, institute_number, e
 INSERT INTO leave_Mgt(leave_Id, leave_Type, date_to, date_From, description, status, employee_id)
     VALUES(1, "Sick", "2020-12-05", "2020-12-10", "Not Well", "Applied", "2");
 
-INSERT INTO shift_details (id, date, hours, employee_id) 
-    VALUES (1,'2020-11-25 12:30:00',8,1);
+    INSERT INTO shift_details (id, date, hours, employee_id) 
+VALUES (1,'2020-11-25 12:30:00',8,1);
 
-INSERT INTO attendance (id, date, present, employee_id) 
-    VALUES (1,'2020-11-25 12:30:00',"yes", 1);
+INSERT INTO tax_details(tax_Id, employee_address, sin_number, salary_generated, employee_id)
+    VALUES(1, "9518 132ST Canada", 1235346546, 400000, 2);
 
+INSERT INTO salary_details (paymentID, currency, wageType, amount, employeeID) 
+    VALUES (1,'CAD', 'Annual', 30000.00, 1)
