@@ -36,8 +36,6 @@ CREATE TABLE bank_detail (
     employee_id INT NOT NULL,
     FOREIGN KEY (employee_id) REFERENCES employee (id) on delete cascade
 );
-<<<<<<< HEAD
-=======
 CREATE TABLE leave_Mgt (
     leave_Id INT PRIMARY KEY,
     leave_Type VARCHAR(50) NOT NULL,
@@ -75,7 +73,6 @@ CREATE TABLE salary_details (
     employeeID INT NOT NULL,
     FOREIGN KEY (employeeID) REFERENCES employee (id) on delete cascade
 );
->>>>>>> attendance_FEATURE_tme_76
 
 
 INSERT INTO employer (id, first_name, last_name, email, phone_number, company_code, password)
@@ -86,9 +83,6 @@ INSERT INTO employee (id, first_name, last_name, email, phone_number, company_co
 
 
 INSERT INTO bank_detail (id, account_number, transit_number, institute_number, employee_id)
-<<<<<<< HEAD
-    VALUES (1, "123456", "002", "5856", 1);
-=======
     VALUES (1, "123456", "002", "5856", 1);
         
 INSERT INTO leave_Mgt(leave_Id, leave_Type, date_to, date_From, description, status, employee_id)
@@ -102,4 +96,3 @@ INSERT INTO tax_details(tax_Id, employee_address, sin_number, salary_generated, 
 
 INSERT INTO salary_details (paymentID, currency, wageType, amount, employeeID) 
     VALUES (1,'CAD', 'Annual', 30000.00, 1)
->>>>>>> attendance_FEATURE_tme_76
