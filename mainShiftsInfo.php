@@ -23,8 +23,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
             && isset($input->employee_id))   {
             
 
-                $sn = Shift_info::createObj($input);
-                Shift_info::addDetail($sn);
+                $si = Shift_info::createObj($input);
+                Shift_info::addDetail($si);
 
             } else {
                 echo json_encode(array("message" => "Missing required fields."));
@@ -32,18 +32,18 @@ switch($_SERVER["REQUEST_METHOD"]) {
 
     break;
     case "DELETE":
+
         if
         (isset($input->id)
             && isset($input->date)
             && isset($input->hours)
             && isset($input->employee_id))   {
-
-                $sn = Shift_info::createObj($input);
-                Shift_info::delete($sn);
-
-            } 
             
-            else {
+
+                $si = Shift_info::createObj($input);
+                Shift_info::delete($si);
+
+            } else {
                 echo json_encode(array("message" => "Missing required fields."));
             }
     break;

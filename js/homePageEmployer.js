@@ -68,7 +68,3 @@ function manageEmployees() {
 function customerService() {
     window.location = './customerService.php';
 }
-
-function attendance() {
-    window.location = "./attendance.php";
-}
